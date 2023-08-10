@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/evanj/ddzstdbazel
+gazelle(name = "gazelle")
+
+go_library(
+    name = "ddzstdbazel_lib",
+    srcs = ["ddzstd.go"],
+    importpath = "github.com/evanj/ddzstdbazel",
+    visibility = ["//visibility:private"],
+    deps = ["//conditionalzstd"],
+)
+
+go_binary(
+    name = "ddzstdbazel",
+    embed = [":ddzstdbazel_lib"],
+    visibility = ["//visibility:public"],
+)

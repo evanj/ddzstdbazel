@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "conditionalzstd",
+    srcs = [
+        "conditionalzstd.go",
+        "conditionalzstd_nocgo.go",
+    ],
+    importpath = "github.com/evanj/ddzstdbazel/conditionalzstd",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_datadog_zstd//:zstd"],
+)
