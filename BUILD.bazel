@@ -17,3 +17,10 @@ go_binary(
     embed = [":ddzstdbazel_lib"],
     visibility = ["//visibility:public"],
 )
+
+go_binary(
+    name = "ddzstdbazel_race",
+    embed = [":ddzstdbazel_lib"],
+    race = "on",
+    visibility = ["//visibility:public"],
+)

@@ -2,9 +2,9 @@
 
 Example of using `github.com/DataDog/zstd` with Go and Bazel.
 
-* normal `go build``: will use Cgo by default and link DataDog/zstd
+* Go standard `go build`: will use Cgo by default and link DataDog/zstd
 * `CGO_ENABLED=0 go build`: does not use Cgo; does not link DataDog/zstd
-* normal cross-compile using `GOOS` or `GOARCH`: disabled Cgo
+* Go standard cross-compile using `GOOS` or `GOARCH`: Cgo is disabled
 
 `Makefile`: Contains some useful "scripts"; all tries to test everything.
 
