@@ -16,7 +16,6 @@ all:
 	bazelisk run --platforms=@rules_go//go/toolchain:linux_amd64 //:ddzstdbazel
 
 gazelle:
-	buildozer 'use_repo_add @gazelle//:extensions.bzl go_deps com_github_datadog_zstd' //MODULE.bazel:all
 	bazelisk run //:gazelle
 
 # https://bazel.build/external/advanced#overriding-repositories

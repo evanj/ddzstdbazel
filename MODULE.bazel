@@ -1,10 +1,3 @@
-###############################################################################
-# Bazel now uses Bzlmod by default to manage external dependencies.
-# Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
-#
-# For more details, please check https://github.com/bazelbuild/bazel/issues/18958
-###############################################################################
-
 # See rules_go bzlmod documentation:
 # https://github.com/bazelbuild/rules_go/blob/master/docs/go/core/bzlmod.md
 
@@ -14,12 +7,12 @@ bazel_dep(name = "gazelle", version = "0.35.0")
 go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
 go_deps.from_file(go_mod = "//:go.mod")
 
+# Use a specific version of Go, e.g. a pre-release version:
+#go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
+#go_sdk.download(version = "1.22rc1")
+
 # All *direct* Go dependencies of the module have to be listed explicitly.
 use_repo(
     go_deps,
     "com_github_datadog_zstd",
-    # "com_github_gogo_protobuf",
-    # "com_github_golang_mock",
-    # "com_github_golang_protobuf",
-    # "org_golang_x_net",
 )
